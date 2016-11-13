@@ -5,13 +5,15 @@
         <div class="image">
           <div class="img-wrap">
             <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item['itemName']) %>
+            <%#= image_tag(item['mediumImageUrls'][0]['imageUrl'], 
+                          alt: item['itemName']) %>
+            <%= original_image_tag(item) %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
             <% #TODO 商品タイトル %>
-            仮タイトル
+            <%= item_name(item) %>
           </p>
         </div>
         <div class="action clearfix">
