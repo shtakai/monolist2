@@ -2,7 +2,7 @@ module ItemsHelper
   def original_image_tag(item)
     image_tag(
       image_url(item).gsub(/\?_ex=128x128/,''), 
-      alt: image_alt(item)
+      alt: itemname(item)
     ) 
   end
   
