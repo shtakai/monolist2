@@ -56,5 +56,12 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
+  
+  gem 'pry-byebug'
+  gem 'awesome_print'
+  gem 'rails-footnotes'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rails_panel'
 end
 
