@@ -15,19 +15,19 @@ module ItemsHelper
   
   def image_url(item)
     # NOTE: nil check (try or &.)
-    #  配列とハッシュが混じったnilチェックを行いたい
-    item.medium_image_urls[0]['imageUrl'] || 'no-image.png'
+    #  -配列とハッシュが混じったnilチェック ->imageFlagチェックで対応
+    #  -商品画像有無は imageFlag 1:あり 0:なし
+    item['imageFlag'] == 1 ? 
+      item.medium_image_urls[0]['imageUrl'] :
+      'no-image.png'
   end
   
-  def image_alt(item)
-    item['itemName'] || 'no description'
-  end
   
   def item_catch_copy(item)
-    "#{item['catchCopy'] }" || ''
+    "#{item['catchCopy'] }"
   end
   
   def itemname(item)
-    item['itemName'] || 'no name'
+    item['itemName']
   end  
 end
