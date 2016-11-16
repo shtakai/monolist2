@@ -28,16 +28,12 @@ class OwnershipsController < ApplicationController
     # Wantボタンが押された時には「Want」が設定されています。
     case params[:type]
     when Have.to_s then
-      logger.debug 'have'
+      current_user.have(@item) unless current_user.have?(@item)
     when Want.to_s then
       current_user.want(@item) unless current_user.want?(@item)
     else
-      logger.debug 'xxx'
-      raise
+      raise 'type is invalid'
     end
-      
-    
-
   end
 
   def destroy
