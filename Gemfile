@@ -63,5 +63,11 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_panel'
+  gem 'meta_request'
+  gem 'quiet_assets'
+  gem 'bullet'
+  
+  gem 'thin'
+  
 end
 
