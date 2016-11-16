@@ -38,12 +38,16 @@ class User < ActiveRecord::Base
 
   ## TODO 実装
   def have(item)
+    haves.find_or_create_by(item_id: item.id)
   end
 
   def unhave(item)
+    ownership_item = haves.find_by(item_id: item.id)
+    ownership_item.destroy if ownership_item
   end
 
   def have?(item)
+    have_items.include?(item)
   end
 
   def want(item)
