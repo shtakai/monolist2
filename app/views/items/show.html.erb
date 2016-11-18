@@ -15,15 +15,13 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
-          <%= @item.have_users.each do |user| %>
-            <%= gravatar_for(user, size:20, link: true) %>
-          <% end %>
+          <%= render @item.have_users %>
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Wantしたユーザー一覧 %>
+          <%= render @item.want_users %>
         </div>
       </div>
       <div class="text-center">
