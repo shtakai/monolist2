@@ -1,0 +1,14 @@
+.ranking_title {
+    text-align: center;
+    p {
+        font-size: 2em;
+        color: darkred;  
+    }
+}
+
+.ranking_item {
+    padding: 0 10px;
+    .item {
+        display: inline-block;
+    }
+}

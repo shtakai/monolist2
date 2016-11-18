@@ -1,0 +1,14 @@
+<div class="row ranking_item">
+    <div class="col-md-offset-3 col-md-2">
+        <strong>#<%= ranking[:index] %> / <%= ranking[:count] %> count(S)</strong>
+    </div>
+    
+    <div class="col-md-6 item">
+        <div class="row">
+            <%= link_to ranking[:item].title.truncate(30), item_path(ranking[:item].id) %>
+        </div>
+        <div class="row">
+        <%= small_image_tag ranking[:item] %>
+        </div>
+    </div>
+</div>
