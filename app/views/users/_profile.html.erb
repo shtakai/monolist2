@@ -36,3 +36,11 @@
     <%= render 'follow_form' if logged_in? && @user != current_user %>
   </div>
 </div>
+
+<%= content_for :user do %>
+  <title><%= "#{@user.name} - monolist" %></title>
+<% end %>
+
+<%= content_for :description do %>
+  <meta name="description" content='<%= "#{@user.name}のモノページ。#{@user.name}の欲しいモノ、持っているモノを表示しています。" %>'>
+<% end %>  
