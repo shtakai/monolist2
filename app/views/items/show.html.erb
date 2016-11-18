@@ -25,9 +25,16 @@
         </div>
       </div>
       <div class="text-center">
-        <% #TODO 正しいリンク先に %>
-        <%= link_to('楽天詳細ページへ', '#') %>
+        <%= link_to('楽天詳細ページへ', @item.detail_page_url) %>
       </div>
     </div>
   </div>
 </div>
+
+<%= content_for :title do %>
+  <title><%= "#{@item.title} - monolist" %></title>
+<% end %>
+
+<%= content_for :description do %>
+  <meta name="description" content='<%= "#{@item.title}に関する情報です。この商品を欲しい人、持ってる人を表示しています。" %>'>
+<% end %>  

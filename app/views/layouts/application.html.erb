@@ -3,8 +3,8 @@
 <head>
   <% if content_for?(:head) %>
     <%= yield :head %>
-  <% elsif content_for?(:user) %>
-    <%= yield :user %>
+  <% elsif content_for?(:title) %>
+    <%= yield :title %>
   <% else %>
     <title>Monolist</title>
   <% end %>
@@ -15,6 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <% if content_for?(:description) %>
     <%= yield :description %>
+  <% else %>
+    <meta name="description" content="monolist モノリスト" >
   <% end %>
 </head>
 <body>
