@@ -15,8 +15,9 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Haveしたユーザー一覧 %>
-
+          <%= @item.have_users.each do |user| %>
+            <%= gravatar_for(user, size:20, link: true) %>
+          <% end %>
         </div>
       </div>
       <div class="side-box">
