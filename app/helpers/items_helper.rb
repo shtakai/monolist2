@@ -6,6 +6,13 @@ module ItemsHelper
     ) 
   end
   
+  def small_image_tag(item)
+    image_tag(
+      image_url(item, small: true), 
+      alt: itemname(item)
+    ) 
+  end
+  
   def item_name(item)
     "#{item_catch_copy(item)}#{itemname(item)}"
   end
@@ -13,12 +20,12 @@ module ItemsHelper
   
   private 
   
-  def image_url(item)
+  def image_url(item, small: nil)
     # NOTE: nil check (try or &.)
     #  -配列とハッシュが混じったnilチェック ->imageFlagチェックで対応
     #  -商品画像有無は imageFlag 1:あり 0:なし
     if item.is_a? Item
-      item.large_image
+      !small ? item.large_image : item.medium_image
     elsif item['imageFlag'] == 1
       item.medium_image_urls[0]['imageUrl']
     else
