@@ -1,4 +1,7 @@
 class RankingController < ApplicationController
+  # NOTE: showing ranking only when logged in
+  before_action :logged_in_user, only: [:have, :want] 
+
   
   # TODO: use kaminari 
   def have
