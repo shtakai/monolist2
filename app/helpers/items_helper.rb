@@ -17,9 +17,12 @@ module ItemsHelper
     # NOTE: nil check (try or &.)
     #  -配列とハッシュが混じったnilチェック ->imageFlagチェックで対応
     #  -商品画像有無は imageFlag 1:あり 0:なし
-    item['imageFlag'] == 1 ? 
-      item.medium_image_urls[0]['imageUrl'] :
-      'no-image.png'
+    if item.is_a? Item
+      item.large_image
+    elsif item['imageFlag'] == 1
+      item.medium_image_urls[0]['imageUrl']
+    else
+    end
   end
   
   
