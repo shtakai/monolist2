@@ -4,18 +4,12 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
-            <%#= image_tag(item['mediumImageUrls'][0]['imageUrl'], 
-                          alt: item['itemName']) %>
             <%= original_image_tag(item) %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <% #TODO 商品タイトル %>
             <% i = Item.find_by(item_code: item['itemCode']) %>
-            <%= i %>
-            <%= current_user.want? i %>
             <%= item_name(item) %>
           </p>
         </div>
@@ -25,16 +19,13 @@
           <% else %>
             <%= render 'items/want' , item: item %>
           <% end %> 
-          <%#= link_to "" , ownerships_path(item_code: item['itemCode'] , type: "Want") ,
-                      :class => "btn-want btn btn-danger btn-sm want",
-                      :item_code => "want-#{item['itemCode']}",
-                      :remote => true,
-                      :method => :post %>
-          <%= link_to "" , ownerships_path(item_code: item['itemCode'] , type: "Have") ,
-                      :class => "btn-have btn btn-warning btn-sm have",
-                      :item_code => "have-#{item['itemCode']}",
-                      :remote => true,
-                      :method => :post %>
+          
+          <% if current_user.have? i %>
+            <%= render 'items/unhave' , item: i %>
+          <% else %>
+            <%= render 'items/have' , item: item %>
+          <% end %> 
+
         </div>
       </div>
     <% end %>

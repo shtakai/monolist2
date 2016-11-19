@@ -1,4 +1,15 @@
-<%= link_to "" , ownerships_path(item_id: item.id , type: "Have") ,
-                      :class => "have-#{item.id} btn-have btn btn-warning btn-sm have",
-                      :remote => true,
-                      :method => :post %>
+<% if item['itemCode'] %>
+    <%= link_to "" , ownerships_path(item_code: item['itemCode'] , type: "Have") ,
+        :class => "have-#{item['itemCode']} btn-have btn btn-danger btn-sm have",
+        :remote => true,
+        :method => :post,
+        item_code: "have-#{item['itemCode']}"
+        %>
+<% else %>
+    <%= link_to "" , ownerships_path(item_id: item.id, type: "Have") ,
+        :class => "have-#{item.item_code} btn-have btn btn-danger btn-sm have",
+        :remote => true,
+        :method => :post,
+        item_code: "have-#{item.item_code}"
+        %>
+<% end %>
