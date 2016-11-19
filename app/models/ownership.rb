@@ -2,18 +2,6 @@ class Ownership < ActiveRecord::Base
   belongs_to :user, class_name: "User"
   belongs_to :item, class_name: "Item"
   
-  RANKING_LIMIT = 49
-  
-  # TODO: offset / page (kaminari)
-  def self.ranking_owned(own_type: nil)
-    where(type: own_type).
-        group(:item_id).
-        order('count_all desc').
-        limit(RANKING_LIMIT).
-        count.
-        map.with_index(1) { |elem, index| {index: index, item: Item.find(elem[0]), count: elem[1]} }
-        # map{ |id, count| {item: Item.find(id), count: count} }
-        # NOTE: ↑のmapは最適化できるのか？
-  end
+  RANKING_LIMIT = 50
   
 end
