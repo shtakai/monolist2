@@ -1,0 +1,11 @@
+          <% if current_user.want? i %>
+            <%= render 'items/unwant' , item: i %>
+          <% else %>
+            <%= render 'items/want' , item: item %>
+          <% end %> 
+          
+          <% if current_user.have? i %>
+            <%= render 'items/unhave' , item: i %>
+          <% else %>
+            <%= render 'items/have' , item: item %>
+          <% end %> 

@@ -14,18 +14,7 @@
           </p>
         </div>
         <div class="action clearfix">
-          <% if current_user.want? i %>
-            <%= render 'items/unwant' , item: i %>
-          <% else %>
-            <%= render 'items/want' , item: item %>
-          <% end %> 
-          
-          <% if current_user.have? i %>
-            <%= render 'items/unhave' , item: i %>
-          <% else %>
-            <%= render 'items/have' , item: item %>
-          <% end %> 
-
+          <%= render 'new_action', item: item, i: i  %>
         </div>
       </div>
     <% end %>
