@@ -36,7 +36,6 @@ class User < ActiveRecord::Base
     following_users.include?(other_user)
   end
 
-  ## TODO 実装
   def have(item)
     haves.find_or_create_by(item_id: item.id)
   end
