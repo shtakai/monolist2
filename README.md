@@ -1,5 +1,7 @@
 # Monolist [モノリスト]
 
+[![GuardRails badge](https://badges.production.guardrails.io/shtakai/monolist2.svg)](https://www.guardrails.io)
+
 TechAcademyオンラインブートキャンプの教材ファイル。  
 使い方は学習システム内のレッスンを参照ください。
 
